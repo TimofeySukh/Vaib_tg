@@ -4,6 +4,46 @@ All notable changes to Telegram Terminal Client.
 
 ---
 
+## [3.0.0] - 2025-11-05
+
+### 🎉 Major Interface Overhaul
+
+#### ✨ Revolutionary Features
+- **🖼️ ASCII Art Image Rendering** - Photos displayed as ASCII art directly in terminal!
+- **⚡ Real-time Auto-refresh** - Messages update automatically with event handlers
+- **🎯 Streamlined Interface** - Reduced from 9 menu options to just 5
+- **🔀 Separated Chat Lists** - Channels and personal chats displayed separately
+- **💬 Interactive Mode as Default** - Start chatting in 2 clicks
+
+#### 🎨 UX Improvements
+- **Simplified workflow**: Press 1 → Select chat → Start messaging
+- **Better chat organization**: Personal chats first, channels separate with 'c' prefix
+- **No more scrolling**: Channels don't dominate the first 20 entries anymore
+- **Intuitive selection**: Type `5` for personal chat #5 or `c5` for channel #5
+- **Enhanced commands**: `/refresh`, `/images` for better control
+
+#### 📚 Project Cleanup
+- **Removed 10+ redundant files**: All Russian-language documentation removed
+- **Cleaner structure**: Only essential files remain
+- **Single source of truth**: One comprehensive README
+- **Better organization**: Focus on English-speaking audience
+
+#### 🛠️ Technical Improvements
+- Added Pillow library for image processing
+- Event-based message handlers for real-time updates
+- Async executor for concurrent input handling
+- Better message ID tracking
+- Separated dialog lists (channels vs chats)
+- Enhanced media handling with ASCII rendering
+
+#### 💥 Breaking Changes
+- Menu structure completely redesigned
+- Option 7 functionality now integrated into option 1
+- Removed toggle notifications (always on in interactive mode)
+- Removed standalone "read messages" mode (use interactive mode)
+
+---
+
 ## [2.0.0] - 2025-10-31
 
 ### 🎉 Major Update
@@ -114,10 +154,11 @@ All notable changes to Telegram Terminal Client.
 
 ## 📋 Version Compatibility
 
-| Version | Python | Telethon | Status |
-|---------|--------|----------|--------|
-| 2.0.0 | 3.7+ | 1.35.0 | Current |
-| 1.0.0 | 3.7+ | 1.35.0 | Legacy |
+| Version | Python | Telethon | Pillow | Status |
+|---------|--------|----------|--------|--------|
+| 3.0.0 | 3.7+ | 1.35.0 | 10.1.0 | Current |
+| 2.0.0 | 3.7+ | 1.35.0 | - | Legacy |
+| 1.0.0 | 3.7+ | 1.35.0 | - | Legacy |
 
 ---
 

@@ -1,20 +1,20 @@
 # 📱 Telegram Terminal Client
 
-A simple and convenient Telegram client for terminal, written in Python using the Telethon library.
+A modern, feature-rich Telegram client for terminal, written in Python using the Telethon library.
 
 ## ✨ Features
 
 - 🔐 Authenticate with Telegram via terminal
-- 💬 View your chat list with icons and unread counts
-- 📨 Read messages from any chat with pagination
-- ✍️ Send text messages and files to chats
+- 💬 Interactive chat mode with **real-time message updates**
+- 🎨 **Separate display** for channels and personal chats/groups
+- 🖼️ **ASCII art rendering** for images directly in terminal
+- ✍️ Send text messages with markdown formatting
+- 📎 Send photos, videos, and documents
 - 🔍 Search through your chats
 - 👤 View detailed chat/user information
-- 🎯 Interactive chat mode for live conversations
-- 🔔 Real-time message notifications
-- 🎨 Colorful interface for better readability
-- 📝 Message formatting support (bold, italic, code)
-- 📎 Send photos, videos, and documents
+- 🎯 Streamlined, intuitive interface
+- 🌈 Colorful output for better readability
+- ⚡ Auto-refreshing messages in conversations
 
 ## 📋 Requirements
 
@@ -107,72 +107,59 @@ After that, the session is saved and you won't need to authenticate again.
 After successful authentication, you'll see the main menu:
 
 ```
-1. Show chats - Display list of your chats
-2. Read messages - Read messages from selected chat
-3. Send message - Send text message to current chat
-4. Send file - Send photo/video/document to current chat
-5. Search chats - Find chats by name
-6. Chat info - View detailed information about current chat
-7. Interactive mode - Live chat mode with auto-refresh
-8. Toggle notifications - Enable/disable real-time notifications
-9. Exit - Close the application
+1. Open chat (interactive mode) - Browse and select a chat to start messaging
+2. Search chats - Find chats by name
+3. Show current chat info - View details about the active chat
+4. Send file to current chat - Upload a file/photo
+5. Exit - Close the application
 ```
+
+**New streamlined workflow**: Just press `1`, select a chat, and start chatting immediately!
 
 ### Usage Examples
 
-#### View Chats
-1. Select option `1`
-2. You'll see a list of your recent chats with numbers
-3. Icons indicate type: 👤 user, 📢 channel, 👥 group
-4. Unread message counts are shown
+#### Starting a Chat (Main Feature)
+1. Select option `1` from main menu
+2. You'll see two sections:
+   - **👥 Personal Chats & Groups** - numbered 1, 2, 3...
+   - **📢 Channels** - access with 'c' prefix (c1, c2, c3...)
+3. Enter a number (e.g., `5`) for personal chats or `c5` for channels
+4. You're instantly in **interactive mode** - start typing!
 
-#### Read Messages
-1. Select option `2`
-2. Enter chat number from the list
-3. You'll see recent messages from that chat
-4. Use pagination to load more messages
+#### Interactive Mode Features
+- **Real-time updates**: New messages appear automatically while you type
+- **ASCII art images**: Photos are rendered as ASCII art in terminal
+- **Simple messaging**: Just type and press Enter to send
+- **Commands available**:
+  - `exit` - Leave interactive mode
+  - `/help` - Show available commands
+  - `/info` - Show chat information
+  - `/file <path>` - Send a file
+  - `/refresh` - Manually check for new messages
+  - `/images` - Reload recent messages with images
 
-#### Send Message
-1. First select a chat (option `2`)
-2. Then select option `3`
-3. Type your message and press Enter
-4. Use formatting:
-   - `**bold**` for **bold text**
-   - `__italic__` for *italic text*
-   - `` `code` `` for `monospace`
+#### Message Formatting
+Use Telegram's markdown syntax:
+- `**bold text**` for **bold**
+- `__italic text__` for *italic*
+- `` `code` `` for `monospace`
+- `[link](URL)` for hyperlinks
 
 #### Send Files
-1. Select a chat first
-2. Choose option `4`
-3. Enter the full path to the file
-4. Optionally add a caption
+1. In interactive mode, type `/file <path>`
+2. Or use option `4` from main menu
+3. Enter file path and optional caption
 
 #### Search Chats
-1. Select option `5`
+1. Select option `2` from main menu
 2. Enter search query
-3. See matching chats
-
-#### Interactive Mode
-1. Select option `7`
-2. Enter chat number
-3. You enter live chat mode
-4. Type messages and they're sent immediately
-5. New messages appear automatically
-6. Type `exit` to leave, `/help` for commands
-
-#### Interactive Mode Commands
-- `exit` - Leave interactive mode
-- `/help` - Show available commands
-- `/info` - Show chat information
-- `/file <path>` - Send a file
-- `/clear` - Clear screen
-- `/history` - Load more messages
+3. See matching results
 
 ## 🎨 Color Scheme
 
 - 🟢 Green - Personal chats and user messages
 - 🔵 Blue - Channels
-- 🟡 Yellow - Groups
+- 🟡 Yellow - Groups and ASCII art images
 - 🟣 Purple - Your messages in interactive mode
 - 🔴 Red - Errors
 - 🟠 Orange - System notifications
@@ -183,12 +170,14 @@ After successful authentication, you'll see the main menu:
 Vaib_tg/
 ├── main.py              # Main application file
 ├── config.py            # Configuration
-├── requirements.txt     # Python dependencies
-├── .env.example         # Example environment variables file
-├── .env                 # Your credentials file (not committed to git)
+├── requirements.txt     # Python dependencies (includes Pillow for images)
+├── CHANGELOG.md         # Version history
+├── .env                 # Your credentials file (create this)
 ├── .gitignore          # Ignored files
 └── README.md           # This file
 ```
+
+Clean and minimal structure - removed excessive documentation files!
 
 ## 🔒 Security
 
@@ -199,8 +188,16 @@ Vaib_tg/
 
 ## 🎯 Advanced Features
 
-### Real-time Notifications
-Enable notifications (option `8`) to receive alerts when new messages arrive while browsing the menu.
+### Real-time Message Updates
+Messages automatically appear in interactive mode as they arrive - no manual refresh needed!
+
+### ASCII Art Image Rendering
+Photos are converted to ASCII art and displayed directly in your terminal. Adjust terminal width for best results.
+
+### Separated Chat Lists
+- **Personal Chats & Groups** shown first (numbered 1, 2, 3...)
+- **Channels** shown separately (access with 'c' prefix: c1, c2, c3...)
+- No more scrolling through 20 channel messages to find personal chats!
 
 ### Message Formatting
 Use Telegram's markdown syntax:
@@ -216,10 +213,7 @@ Supported file types:
 - 📄 Documents (any file type)
 
 ### Chat Search
-Quickly find chats by:
-- Name
-- Username
-- Part of the name
+Quickly find chats by name, username, or partial match
 
 ## 🐛 Troubleshooting
 
@@ -258,15 +252,16 @@ https://core.telegram.org/api
 ### Telegram Bot API
 https://core.telegram.org/bots/api
 
-## 🆕 Recent Updates
+## 🆕 Recent Updates (v3.0)
 
-- ✅ Added real-time message notifications
-- ✅ Added file/photo sending capability
-- ✅ Added chat search functionality
-- ✅ Added chat information display
-- ✅ Improved interactive mode with auto-refresh
-- ✅ Added message formatting support
-- ✅ Added interactive mode commands
+### Major Interface Overhaul
+- ✅ **Streamlined UI**: Reduced menu from 9 to 5 options
+- ✅ **Interactive mode as default**: No need to navigate through multiple menus
+- ✅ **Separated chat lists**: Channels and personal chats shown separately
+- ✅ **ASCII art images**: Photos rendered directly in terminal
+- ✅ **Real-time auto-refresh**: Messages update automatically in interactive mode
+- ✅ **Cleaner project structure**: Removed 10+ redundant documentation files
+- ✅ **Improved workflow**: Select chat and start messaging in 2 clicks
 
 ## 🤝 Support
 
