@@ -59,16 +59,8 @@ pip3 install -r requirements.txt
 1. Create a `.env` file in the project root:
 
 ```bash
-cd /Users/tim/Cursor_projects/Vaib_tg
+cd /Something/Vaib_tg
 nano .env
-```
-
-2. Fill in your credentials:
-
-```env
-API_ID=your_api_id
-API_HASH=your_api_hash
-PHONE_NUMBER=+1234567890
 ```
 
 **Important:** Phone number must be in international format (with country code)
@@ -280,7 +272,7 @@ Want to contribute or modify?
 
 ## 📝 License
 
-This project is created for educational purposes. Use at your own risk.
+MIT
 
 ---
 
